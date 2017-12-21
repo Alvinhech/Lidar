@@ -1,0 +1,2 @@
+chown root radar_no run_radars
+chmod u+s radar_no run_radars

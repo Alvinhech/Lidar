@@ -1,0 +1,18 @@
+CC=g++
+LIBS=opencv
+CFLAGS= -Wall -std=c++11 -fpermissive
+
+LDFLAGS= -L. librplidar_sdk.a `pkg-config --libs $(LIBS)`
+
+TARGET= cal_radar
+SRCS= ./src/cal_radar.cpp
+
+INC= -I ./include -I ./src
+OBJS= $(SRCS:.cpp=.o)
+
+$(TARGET):
+	$(CC) $(CFLAGS) $(INC) -g -o $@ $(SRCS) librplidar_sdk.a $(LDFLAGS)
+
+clean:
+	rm -rf $(TARGET) $(OBJS)
+
